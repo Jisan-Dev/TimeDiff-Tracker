@@ -6,7 +6,7 @@ function App() {
   useClock('Local Clock');
   useClock('EST Clock', 'EST');
   useClock('PST Clock', 'PST');
-  useClock('UTC Clock', 'UTC', 6 * 60);
+  useClock('UTC Clock', 'UTC', -5 * 60);
   return (
     <>
       <LocalClock />
