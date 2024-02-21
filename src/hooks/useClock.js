@@ -14,24 +14,27 @@ const init = {
 };
 
 const TIMEZONE_OFFSET = {
-  PST: 7,
-  EST: 4,
+  PST: -7 * 60,
+  EST: -4 * 60,
 };
 
-const useClock = (date, timezone, offset = 0) => {
+const useClock = (label, timezone, offset = 0) => {
   const [state, setState] = useState({ ...init });
 
   useEffect(() => {
-    let utc = new Date(date);
+    let utc = new Date();
+    const localOffset = utc.getTimezoneOffset();
+    utc = addMinutes(utc, localOffset);
+
     if (timezone) {
       if (timezone === 'PST' || timezone === 'EST') {
         offset = TIMEZONE_OFFSET[timezone];
       }
-    } else {
-      offset = utc.getTimezoneOffset();
+      utc = addMinutes(utc, offset);
+      console.log(label, utc.toLocaleString());
+      return;
     }
-    utc = addMinutes(utc, offset);
-    console.log(utc.toLocaleString());
+    console.log(label, utc.toLocaleString());
   }, []);
 
   return {

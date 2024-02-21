@@ -3,7 +3,10 @@ import LocalClock from './components/local-clock';
 import useClock from './hooks/useClock';
 
 function App() {
-  useClock(new Date());
+  useClock('Local Clock');
+  useClock('EST Clock', 'EST');
+  useClock('PST Clock', 'PST');
+  useClock('UTC Clock', 'UTC', 6 * 60);
   return (
     <>
       <LocalClock />
