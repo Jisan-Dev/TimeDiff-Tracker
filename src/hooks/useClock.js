@@ -31,6 +31,7 @@ const useClock = (timezone, offset = 0) => {
       } else {
         const UTCconverted = addMinutes(utc, -localOffset);
         setLocalDate(UTCconverted);
+        // TODO: find timezone
       }
     }
   }, [utc]);
