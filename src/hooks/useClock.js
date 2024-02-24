@@ -34,7 +34,6 @@ const useClock = (timezone, offset = 0) => {
         const dateStrArray = UTCconverted.toUTCString().split(' ');
         setLocalDate(UTCconverted);
         setLocalTimezone(dateStrArray.pop());
-        // TODO: find timezone
       }
     }
   }, [utc]);
