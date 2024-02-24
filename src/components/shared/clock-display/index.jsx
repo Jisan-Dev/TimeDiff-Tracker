@@ -6,8 +6,7 @@ const ClockDisplay = ({ date, title, timezone, offset }) => {
       <h1>Title: {title}</h1>
       <h1>{date.toString()}</h1>
       <p>
-        {' '}
-        {timezone} | {offset / 60}{' '}
+        {timezone} | {offset / 60}
       </p>
     </div>
   );

@@ -3,11 +3,11 @@ import LocalClock from './components/local-clock';
 import useClock from './hooks/useClock';
 
 function App() {
-  const { date: localClock, offset, timezone } = useClock();
+  const { date: localClock, localOffset, localTimezone } = useClock();
   localClock && console.log(localClock);
   return (
     <>
-      {localClock && <LocalClock date={localClock} offset={offset} timezone={timezone} />}
+      {localClock && <LocalClock date={localClock} offset={localOffset} timezone={localTimezone} />}
       <ClockList />
     </>
   );
