@@ -9,7 +9,7 @@ const TIMEZONE_OFFSET = {
   MST: -7 * 60,
 };
 
-const useClock = (timezone, offset = 0) => {
+const useClock = (timezone, offset) => {
   const [localDate, setLocalDate] = useState(null);
   const [localTimezone, setLocalTimezone] = useState('');
   const [localOffset, setLocalOffset] = useState(0);
@@ -41,9 +41,8 @@ const useClock = (timezone, offset = 0) => {
   return {
     date: localDate,
     dateUTC: utc,
-    timezone,
-    localTimezone,
-    offset,
+    timezone: timezone || localTimezone,
+    offset: offset || localOffset,
     localOffset,
   };
 };
