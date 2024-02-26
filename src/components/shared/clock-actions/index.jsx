@@ -8,7 +8,7 @@ const ClockActions = ({ local = true, clock, updateClock }) => {
   const handleChange = (e) => {
     let { name, value } = e.target;
     if (name === 'offset') {
-      value = parseInt(value) * 60;
+      value = parseFloat(value) * 60;
     }
     updateClock({
       [name]: value,
@@ -31,9 +31,9 @@ const ClockActions = ({ local = true, clock, updateClock }) => {
             <option value="MST">MST</option>
           </select>
           {(clock.timezone === 'GMT' || clock.timezone === 'UTC') && (
-            <select name="offset" value={-clock.offset / 60} onChange={handleChange}>
+            <select name="offset" value={clock.offset / 60} onChange={handleChange}>
               {defaultOffsets.map((offset) => (
-                <option key={offset} value={offset}>
+                <option key={offset} value={-offset}>
                   {offset}
                 </option>
               ))}
