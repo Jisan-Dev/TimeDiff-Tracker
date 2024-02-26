@@ -27,7 +27,7 @@ const useClock = (timezone, offset) => {
     if (utc !== null) {
       if (timezone) {
         offset = TIMEZONE_OFFSET[timezone] ?? offset;
-        const UTCconverted = addMinutes(utc, offset);
+        const UTCconverted = addMinutes(utc, -offset);
         setLocalDate(UTCconverted);
       } else {
         const UTCconverted = addMinutes(utc, -localOffset);
@@ -36,7 +36,7 @@ const useClock = (timezone, offset) => {
         setLocalTimezone(dateStrArray.pop());
       }
     }
-  }, [utc]);
+  }, [utc, timezone, offset]);
 
   return {
     date: localDate,
