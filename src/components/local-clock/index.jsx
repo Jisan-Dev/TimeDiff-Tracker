@@ -17,7 +17,7 @@ const LocalClock = ({ clock, updateClock }) => {
   return (
     <div>
       {date && <ClockDisplay date={date} title={clock.title} timezone={timezone} offset={offset} />}
-      <ClockActions local={true} />
+      <ClockActions local={true} clock={clock} updateClock={updateClock} />
     </div>
   );
 };

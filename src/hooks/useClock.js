@@ -43,7 +43,6 @@ const useClock = (timezone, offset) => {
     dateUTC: utc,
     timezone: timezone || localTimezone,
     offset: offset || localOffset,
-    localOffset,
   };
 };
 
